@@ -1,0 +1,90 @@
+/* Base Reset and Theme */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #f9f9f9, #eef2f3);
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #19c4c4;
+  margin-bottom: 2rem;
+}
+
+/* Host List */
+.host-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Host Card */
+.host-card {
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.host-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+.host-card h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #6976ff;
+}
+
+.host-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ff2cdf;
+  font-weight: 500;
+}
+
+/* Delete Button */
+form button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+form img {
+  width: 24px;
+  height: 24px;
+  mix-blend-mode: color-burn;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .host-card h3 {
+    font-size: 1rem;
+  }
+
+  .host-card p {
+    font-size: 0.9rem;
+  }
+}

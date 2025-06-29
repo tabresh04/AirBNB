@@ -1,0 +1,35 @@
+.book-now{
+    padding:1em 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 30px;
+    width: 50px;
+    font-weight: 600;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    background: linear-gradient(to right, green, yellow);
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+}
+
+.book-now::after{
+    content: '';
+    background: linear-gradient(to right, #ffee00, #ffb300);
+    height: 50px;
+    width: 0px;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: 300ms ease-in;
+}
+
+.book-now:hover::after{
+    width: 100%;
+}
+
+.book-now{
+    color: black;
+}

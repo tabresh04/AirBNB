@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Hosts</title>
+    <link rel="stylesheet" href="/styles/user.css" />
+</head>
+
+<body>
+    <%- include('../partials/navbar.ejs') %>
+        <div class="container">
+            <h1>All Hosts</h1>
+
+            <% if (hosts.length> 0) { %>
+                <ul class="host-list">
+                    <% hosts.forEach(host=> { %>
+                        <li class="host-card">
+                            <h3>
+                                <%= host.personname %>
+                                    <form 
+                                        action="/host/host-delete/<%= host._id %>"
+                                        method="POST"
+                                    >
+                                        <button type="submit"><img src="/images/delete.png" alt="delete Icon"></button>
+                                    </form>
+                            </h3>
+                            <p>Email: <%= host.email %>
+                            </p>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } else { %>
+                    <p>No hosts found.</p>
+                    <% } %>
+        </div>
+</body>
+
+</html>

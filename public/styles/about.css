@@ -1,0 +1,119 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #ff5a5f, #fc8eac);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+/* About Section */
+.about {
+  padding: 3rem 1rem;
+  background-color: #fff;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Features */
+.features {
+  padding: 3rem 1rem;
+  background-color: #f0f0f0;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  max-width: 280px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #ff5a5f;
+  margin-bottom: 0.75rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer .social-icons img {
+  margin: 0 0.5rem;
+  vertical-align: middle;
+  /* filter: brightness(0) invert(1); */
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}

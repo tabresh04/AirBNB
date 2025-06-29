@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="./navbar.css" />
+</head>
+
+<body>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      text-align: center;
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      background: linear-gradient(to right, #000000, #555555);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      background-color: transparent;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a:hover,
+    .navbar a:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
+    }
+
+    .navbar a.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 5px;
+        gap: 8px;
+      }
+
+      .navbar a {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar a {
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+
+  <div class="navbar">
+    <a href="/">Home</a>
+
+    <% if (user) { %>
+      <% if (user.role==='user' ) { %>
+        <a href="/bookings">Bookings</a>
+        <a href="/favorite">Favorite</a>
+        <a href="/logout">Logout</a>
+      <% } %>
+
+      <% if (user.role==='host' ) { %>
+         <a href="/host/add-home">Add New Home</a>
+         <a href="/host/host-homes">Host Homes</a>
+         <a href="/logout">Logout</a>
+      <% } %>
+
+      <% if (user.role==='admin' ) { %>
+         <a href="/host/hosts">Hosts</a>
+         <a href="/users">Users</a>
+         <a href="/logout">Logout</a>
+      <% } %>
+    <% } 
+    else { %>
+        <a href="/login">Login</a>
+    <% } %>
+    <a href="/contact">Contact</a>
+  </div>
+</body>
+
+</html>

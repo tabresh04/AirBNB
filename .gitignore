@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+
+# Optional: VS Code settings (if not needed in repo)
+.vscode/
+
+# Build output (if you build static files, like React frontends later)
+dist/
+build/

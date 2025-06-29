@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Details</title>
+  <link rel="stylesheet" href="/styles/home-details.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Home Details of <%= home.homename %></h1>
+
+    <% if (home.photo) { %>
+      <img src="<%= home.photo %>" alt="Home Photo" class="home-photo" />
+    <% } %>
+
+    <div class="details">
+      <p><span>Name:</span> <%= home.homename %></p>
+      <p><span>Location:</span> <%= home.location %></p>
+      <p><span>Price:</span> ₹<%= home.price %> / night</p>
+      <p><span>Rating:</span> <%= home.rating %></p>
+      <p><span>Description:</span> <%= home.discription %></p>
+    </div>
+
+    <div class="button-wrapper">
+      <a class="book-btn" href="/bookings/<%= home.id %>">Book Now</a>
+    </div>
+
+    <div class="button-wrapper">
+      <form action="/favorite" method="POST">
+        <input type="hidden" name="id" value="<%= home.id %>">
+        <button class="btn" type="submit">Add to Favorite</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "watch": ["controllers", "routes", "views", "app.js"],
+  "ext": "js, ejs",
+  "ignore": [
+    "node_modules/",
+    "public/",
+    "files/",
+    "registeredHomes.json",
+    "package-lock.json"
+  ]
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorite</title>
+  <link rel="stylesheet" href="/styles/home.css" />
+</head>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+    <h1 style="text-align:center; margin-top: 20px;">Your Favorite Items</h1>
+
+    <div class="scroll-container">
+      <% if (favhomes.length> 0) { %>
+        <div class="card-row">
+          <% favhomes.forEach(home=> { %>
+            <a href="/homes/<%= home.id %>" class="card-link">
+              <div class="card">
+                <!-- Room Image -->
+                <img src="<%= home.photo %>" alt="Room Image" class="card-img" />
+
+                <!-- Card Content -->
+                <div class="card-content">
+                  <div>
+                    <h2 class="card-title">Name: <%= home.homename %>
+                    </h2>
+                    <p class="card-location">Location: <%= home.location %>
+                    </p>
+
+                    <div class="card-price">
+                      ₹<%= home.price %> <span class="price-unit">/ night</span>
+                    </div>
+
+                    <div class="card-rating">
+                      ⭐ <%= home.rating %> / 5
+                    </div>
+                  </div>
+
+                  <!-- Buttons -->
+                  <div style="gap: 5px">
+                    <div style="display: flex;
+                    justify-content: space-evenly;
+                    align-self: center;">
+                      <button class="book-btn" style="margin-top: 13px;">Book</button>
+                      <form action="/delete-favorite/<%= home.id %>" method="POST" style="margin-top: 10px;">
+                        <button type="submit" class="book-btn" style="background-color: #e53935;">Delete</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <% }) %>
+        </div>
+        <% } else { %>
+          <p class="no-homes">No favorite Homes you have marked</p>
+          <% } %>
+    </div>
+</body>
+
+</html>

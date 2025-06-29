@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Host Homes</title>
+  <link rel="stylesheet" href="/styles/editHome.css" />
+</head>
+
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <center>
+    <h1 class="heading">Host Homes</h1>
+  </center>
+
+  <div class="scroll-container">
+    <div class="card-row">
+      <% if (registeredHomes.length > 0) { %>
+        <% registeredHomes.forEach(home => { %>
+          <div class="card">
+            <img src="<%= home.photo %>" alt="Room Image" class="card-img" />
+
+            <div class="card-content">
+              <div class="card-info">
+                <p class="card-title" title="<%= home.homename %>">Name: <%= home.homename %></p>
+                <p class="card-location">Location: <%= home.location %></p>
+
+                <div class="card-price">
+                  ₹<%= home.price %> <span class="price-unit">/ night</span>
+                </div>
+
+                <div class="card-rating">
+                  <span>⭐</span>
+                  <span><%= home.rating %> / 5</span>
+                </div>
+              </div>
+
+              <div class="card-actions">
+                <a href="/host/edit-home/<%= home.id %>?editing=true" class="card-link">
+                  <button class="icon-btn">📝</button>
+                </a>
+
+                <form action="/host/delete-home/<%= home.id %>" method="POST">
+                  <button class="icon-btn" type="submit">🗑️</button>
+                </form>
+
+                <form action="/host/update-availability/<%= home.id %>" method="POST">
+                  <input type="hidden" name="isAvailable" value="false" />
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      name="isAvailable"
+                      value="true"
+                      <%= home.isAvailable ? "checked" : "" %>
+                      onchange="this.form.submit()" />
+                    <span class="slider"></span>
+                  </label>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="no-homes">No homes registered yet.</p>
+      <% } %>
+    </div>
+  </div>
+</body>
+</html>

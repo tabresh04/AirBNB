@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Users</title>
+  <link rel="stylesheet" href="/styles/user.css" />
+</head>
+<body>
+  <%- include('../partials/navbar.ejs') %>
+  <div class="container">
+    <h1>All Users</h1>
+
+    <% if (users.length > 0) { %>
+      <ul class="host-list">
+        <% users.forEach(user => { %>
+          <li class="host-card">
+            <h3>
+                <%= user.personname %>  
+                <form 
+                    action="/user-delete/<%= user._id %>"
+                    method="post"
+                    
+                >
+                    <button type="submit"><img src="/images/delete.png" alt="delete Icon"></button>
+                </form>
+            </h3>
+            <p>Email: <%= user.email %></p>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No users found.</p>
+    <% } %>
+  </div>
+</body>
+</html>

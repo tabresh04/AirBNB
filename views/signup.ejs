@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/auth.css">
+</head>
+<body>
+    <div class="login-container">
+    <form action="/signup" method="POST">
+        <input type="text" name="personname" placeholder="Enter Your Name.."
+        required
+        >
+        <input type="email" name="email" placeholder="Enter Your Email"
+        required
+        >
+        <input type="password" name="password" placeholder="Enter Your password"
+        required
+        >
+        <input type="text" 
+        name="role"
+        placeholder="Enter your role..."
+        required
+        />
+        <button type="submit">Signup</button>
+    </form>
+    </div>
+</body>
+</html>

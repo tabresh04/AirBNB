@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= editing ? "Edit Home" : "Add Home" %></title>
+  <link rel="stylesheet" href="/styles/addHome.css" />
+</head>
+<body>
+  <%- include('../partials/navbar.ejs') %>
+
+  <form 
+    action="<%= editing ? '/host/edit-home/' + home.id : '/host/add-home' %>" 
+    method="POST">
+
+    <!-- Hidden ID Field -->
+    <% if (editing) { %>
+      <input type="hidden" name="id" value="<%= home.id %>" />
+    <% } %>
+
+    <!-- Home Name -->
+    <input 
+      type="text" 
+      name="homename" 
+      placeholder="Enter home name" 
+      value="<%= editing ? home.homename : '' %>" 
+      required 
+    />
+
+    <!-- Location -->
+    <input 
+      type="text" 
+      name="location" 
+      placeholder="Enter location" 
+      value="<%= editing ? home.location : '' %>" 
+      required 
+    />
+
+    <!-- Price -->
+    <input 
+      type="number" 
+      step="0.1"
+      name="price" 
+      placeholder="Enter price per night" 
+      value="<%= editing ? home.price : '' %>" 
+      required 
+    />
+
+    <!-- Rating -->
+    <input 
+      type="number" 
+      step="0.1"
+      name="rating" 
+      placeholder="Enter rating (1-5)" 
+      value="<%= editing ? home.rating : '' %>" 
+      required 
+    />
+
+    <!-- Description -->
+    <textarea 
+      name="discription" 
+      placeholder="Enter home description" 
+      required><%= editing ? home.discription : '' %></textarea>
+
+    <!-- Photo URL -->
+    <input 
+      type="text" 
+      name="photo" 
+      placeholder="Enter photo URL" 
+      value="<%= editing ? home.photo : '' %>" 
+      required 
+    />
+
+    <!-- Submit Button -->
+    <button type="submit">
+      <%= editing ? "Update Home" : "Submit Home" %>
+    </button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/styles/home.css" />
+</head>
+
+<body>
+  <%- include('partials/navbar.ejs') %>
+  <%- include('partials/searchbar.ejs') %>
+
+    <div class="scroll-container">
+      <div class="card-row">
+        <% if (registeredHomes.length> 0) { %>
+          <% registeredHomes.forEach(home=> { %>
+            <a href="/homes/<%= home.id %>" class="card-link">
+              <div class="card">
+                <img src="<%= home.photo %>" alt="Room Image" class="card-img">
+                <div class="card-content">
+                  <div>
+                    <h2 class="card-title">
+                      <%= home.homename %>
+                    </h2>
+                    <p class="card-location">
+                      <%= home.location %>
+                    </p>
+                    <div class="card-price">Rs <%= home.price %> <span class="price-unit">/ night</span></div>
+                    <div class="card-rating">
+                      <span>⭐</span>
+                      <span>
+                        <%= home.rating %>/5
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <% }) %>
+              <% } else { %>
+                <p class="no-homes">No homes registered yet.</p>
+                <% } %>
+      </div>
+    </div>
+  <%- include('contact.ejs') %>
+</body>
+
+</html>

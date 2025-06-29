@@ -14,12 +14,13 @@ const db = require("./utils/database");
 // Load environment variables
 dotenv.config();
 
+const PORT = process.env.PORT || 12345;
 // Connect to MongoDB
 db()
 .then(() => {
   console.log("✅ Connected to MongoDB");
-  app.listen(3000, () => {
-    console.log('🚀 Server running on http://localhost:3000');
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
   });
 })
 .catch(err => {
